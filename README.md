@@ -3,7 +3,7 @@ Created using Python 3.8. I picked tkinter for making the GUI, and it worked out
 
 # Usage
 
-1. Clone the repo into a directory of your choosing.
+1. Fork (if you want to make changes) or clone the repo into a directory of your choosing.
 
 2. Run `pipenv install` to setup the virtual env
 
