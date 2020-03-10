@@ -1,11 +1,16 @@
 import tkinter as tk
 import webbrowser as browser
 
+# My todoItem module
+from todoItem import TodoItem
 
 # Open browser and navigate to source repo
 def browse_to_repo(e):
     browser.open("https://github.com/TinySquid/py-todo-app", new=2)
 
+
+# Create list to hold todo items
+todos = {}
 
 # Create main window & set title
 main_window = tk.Tk()
@@ -24,6 +29,10 @@ controls_frame = tk.Frame(main_window)
 todo_list_frame.pack()
 controls_frame.pack(side=tk.BOTTOM)
 
+# Create dummy todo items
+todo_a = TodoItem(todo_list_frame, "Make dinner")
+todo_b = TodoItem(todo_list_frame, "Take out the trash")
+todo_c = TodoItem(todo_list_frame, "Code...")
 
 # Setup clear button
 clear_btn = tk.Button(controls_frame, text="Clear Completed", width=50, command=None)
