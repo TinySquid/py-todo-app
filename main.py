@@ -34,6 +34,9 @@ todo_a = TodoItem(todo_list_frame, "Make dinner")
 todo_b = TodoItem(todo_list_frame, "Take out the trash")
 todo_c = TodoItem(todo_list_frame, "Code...")
 
+# Append to list
+todos.update({1: todo_a, 2: todo_b, 3: todo_c})
+
 # Setup clear button
 clear_btn = tk.Button(controls_frame, text="Clear Completed", width=50, command=None)
 clear_btn.pack(side=tk.BOTTOM)
