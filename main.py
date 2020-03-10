@@ -20,6 +20,20 @@ def add_todo():
     new_todo_title_input.delete(0, tk.END)
 
 
+# Remove todo items that are marked complete
+def clear_completed():
+    to_remove_list = []
+
+    # Destroy all completed TodoItems
+    for key, todo in todos.items():
+        if todo.get_state() == 1:
+            todo.destroy()
+            # Add key refs to list so we can remove the TodoItem ref from todos dict
+            # Throws an error if we remove keys from a dict we are iterating through at the same time
+            to_remove_list.append(key)
+    [todos.pop(key) for key in to_remove_list]
+
+
 # Create main window & set title
 main_window = tk.Tk()
 main_window.title("Todo App")
@@ -54,7 +68,9 @@ add_todo_btn = tk.Button(new_todo_frame, text="(+)", width=10, command=add_todo)
 add_todo_btn.pack(side=tk.RIGHT)
 
 # Setup clear button
-clear_btn = tk.Button(controls_frame, text="Clear Completed", width=50, command=None)
+clear_btn = tk.Button(
+    controls_frame, text="Clear Completed", width=50, command=clear_completed
+)
 clear_btn.pack(side=tk.BOTTOM)
 
 # Enter GUI loop
