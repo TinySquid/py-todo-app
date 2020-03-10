@@ -15,7 +15,7 @@ todos = {}
 
 def add_todo():
     # Add new todo item
-    todos[len(todos.keys())] = TodoItem(todo_list_frame, new_todo_title_input.get())
+    todos[len(todos) + 1] = TodoItem(todo_list_frame, new_todo_title_input.get())
     # Clear Entry box text
     new_todo_title_input.delete(0, tk.END)
 
