@@ -14,10 +14,13 @@ todos = {}
 
 
 def add_todo():
-    # Add new todo item
-    todos[len(todos) + 1] = TodoItem(todo_list_frame, new_todo_title_input.get())
-    # Clear Entry box text
-    new_todo_title_input.delete(0, tk.END)
+    todo_title = new_todo_title_input.get()
+
+    if len(todo_title) > 0:
+        # Add new todo item
+        todos[len(todos) + 1] = TodoItem(todo_list_frame, todo_title)
+        # Clear Entry box text
+        new_todo_title_input.delete(0, tk.END)
 
 
 # Remove todo items that are marked complete
